@@ -6,9 +6,14 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-/* GET users listing. */
+/* NEW users listing. */
 router.get('/new', function(req, res, next) {
   res.render('new.ejs');
+});
+
+/* EDIT users info. */
+router.get('/edit', function(req, res, next) {
+  res.render('edit.ejs');
 });
 
 /* DELETE individual user. */
