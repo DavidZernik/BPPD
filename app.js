@@ -91,7 +91,7 @@ app.post('/signin',function(req, res){
         res.json({success: true, message: "Here is your token", token: token});
       }
     }
-  })
+  });
 });
 
 //=====API ROUTES=====
@@ -102,10 +102,10 @@ apiRouter.use(function(req, res, next){
   if(token){
     //verify secret and check expiration
     jwt.verify(token, secret, function(err, decoded){
-      if(err) res.status(403).send({success: false, message: "Access Denied!"})
+      if(err) res.status(403).send({success: false, message: "Access Denied!"});
       req.decoded = decoded;
       next();
-    })
+    });
   }else{
     return res.status(403).send({success: false, message: "Not token provided"});
   }

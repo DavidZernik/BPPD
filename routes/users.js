@@ -6,6 +6,11 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
+/* GET users listing. */
+router.get('/new', function(req, res, next) {
+  res.render('new.ejs');
+});
+
 /* DELETE individual user. */
 router.get('/delete', function(req, res, next) {
   res.render('../views/delete');
