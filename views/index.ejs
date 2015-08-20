@@ -16,6 +16,41 @@
       </div>
       <!-- END SEARCH BAR -->
 
+      <!-- Button -->
+<!-- <div class="control-group">
+  <div class="controls">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Button</button>
+  </div>
+</div> -->
+
+<button type="button" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
+</button>
+
+
+
+
+<script>
+  $(function(){
+    // create variable that gets the button id
+    var $buttonId = $('singlebutton');
+      $buttonId.click(function(event){
+        // this is just standard Ajax code that's needed
+        event.preventDefault();
+        $.ajax({
+          // connect the ejs to the following url (our view)
+          url: 'http://localhost:3000/users/addsong',
+          // pass the following song id to the above route
+          data: {12345};
+
+
+
+        })
+      })
+
+  });
+</script> --> -->
+
 <!-- SEARCH SCRIPT -->
     <script>
       $(function(){
