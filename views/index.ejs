@@ -35,12 +35,20 @@
 
         <ul class="nav navbar-nav navbar-right" id="nav-links">
           <li><a href="#">your music</a></li>
-          <!-- This is the line of code I'm changing for the modal link to work 8/19 for Authentication------------------------------>
+          <!-- Button for your profile, eventually will only show if user is logged in -->
+          <% if(token) { %>
+            <li><a href="#">your profile</a></li>
+          <% } else { %>
+            <!-- We will delete the following line of code once we get token authentication set up -->
+            <li><a href="#">your profile</a></li>
+          <% } %>
           <% if(token) { %>
             <li id="logoutButton"><a href="/logout">logout</a></li>
           <% } else { %>
             <li id="loginButton"><a href="#">login</a></li>
           <% } %>
+
+
         </ul>
       </div><!-- /.navbar-right close-->
 
