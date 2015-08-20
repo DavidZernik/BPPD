@@ -18,19 +18,25 @@ router.get('/', function(req, res, next) {
   })
 })*/
 
-//Add songs route
+//Add songs route aka Favorite button
 router.put('/addsong', function(req, res, next){
+  // In the token there is a user id "_id:"
   User.findOne({_id: req.decoded.id}, function(err, user){
+    // goes to the DB and saves the sondID as a variable
     var songId = req.body.songId;
     console.log('Adding song:' + songId);
     //To check if song is already added
+    // On the DB, user.songs is the songs array
+    // "filter" method filters thru array, return value of songId
+    // If song doesn't exist in the list, push it to the list, a.k.a. "like"
     if(user.songs.filter(function(value){ return value == songId}).length == 0){
-      console.log(songId + ' has been added to your playlist')
+      console.log(songId + ' has been added to your playlist');
       user.songs.push(songId);
+      // You need to save it in the database
       user.save();
       next();
     }else{
-      //If song is already in songs list, delete
+      //If song is already in songs list, delete from the database
       user.songs.splice(user.songs.indexOf(songId), 1);
       console.log('Song ' + songId + ' has been deleted');
       user.save();
