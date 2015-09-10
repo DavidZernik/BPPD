@@ -1,0 +1,17 @@
+#pad1, #pad2, #pad3, #pad4 {
+    width: 10em;
+    height: 10em;
+    margin-bottom: 1em;
+    display: inline-block;
+    background: #fca13f;
+    box-shadow: rgba(0, 0, 0, 0.0980392) -6px 6px 0px 0px inset;
+    text-align: center;
+}
+
+#sp {
+    width: 22.75em;
+    height: 25em;
+    margin: 0;
+    padding: 2em;
+    float: left;
+}

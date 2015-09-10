@@ -2,6 +2,7 @@
 //Call our packages
 var express = require('express');
 var path = require('path');
+//
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -53,6 +54,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// this will use express's static
 app.use(express.static(path.join(__dirname, 'public')));
 
 //=====Token Check=====
@@ -205,7 +207,7 @@ apiRouter.route('/users')
               if(err) return console.log(err);
               response.likedSongs = user.songs;
               res.json(response);
-            })  
+            })
           } else {
             console.log('user searching is NOT logged in');
             response.userIsLoggedIn = false;
@@ -217,7 +219,7 @@ apiRouter.route('/users')
         }
       })
 
-      
+
     });
 
 // catch 404 and forward to error handler
